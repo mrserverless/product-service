@@ -1,0 +1,47 @@
+[
+  {
+    "code": "ult_small",
+    "name": "Unlimited 1GB",
+    "description": "",
+    "price": 24.90,
+    "expiry": 30,
+    "is_plan": true,
+    "is_ulimited": true,
+    "size_mb": 1024,
+    "4g": true,
+    "auto_renew": true,
+    "terms_url": "http://amaysim.com.au/terms-conditions/special-conditi"
+  }
+]
+
+//
+//ult_medium
+//Unlimited 2GB
+//29.90
+//30
+//true
+//true
+//2048
+//true
+//true
+//http: //amaysim.com.au/terms-conditions/special-conditi
+//ult_large
+//Unlimited 5GB
+//44.90
+//30
+//true
+//true
+//5120
+//true
+//true
+//http: //amaysim.com.au/terms-conditions/special-conditi
+//ult_xlarge
+//Unlimited 8GB
+//49.90
+//30
+//true
+//ture
+//8192
+//true
+//true
+//http: //amaysim.com.au/terms-conditions/special-conditi
