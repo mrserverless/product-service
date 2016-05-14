@@ -8,7 +8,8 @@ import (
 )
 
 type ProductApi struct {
-        Products []models.Product
+        Products   []models.Product
+        ProductMap map[string]*models.Product
 }
 
 func NewProductApi(seedfile string) *ProductApi {
@@ -18,14 +19,24 @@ func NewProductApi(seedfile string) *ProductApi {
         } else {
                 products := []models.Product{}
                 ffjson.Unmarshal(buf, &products)
-                return &ProductApi{products}
+                return &ProductApi{products, mapProducts(products)}
         }
 }
 
-func (pApi ProductApi) GetProducts() []models.Product {
+func mapProducts(products []models.Product) map[string]*models.Product {
+
+        productMap := map[string]*models.Product{}
+        for _, product := range products {
+                productMap[product.Code] = &product
+        }
+        return productMap
+}
+
+func (pApi *ProductApi) GetProducts() []models.Product {
+        // TODO if we had a DB, this would return by reference instead of value.
         return pApi.Products
 }
-//
-//func (pApi ProductApi) GetProduct(id string) *models.Product {
-//        return &pApi.products[0]
-//}
+
+func (pApi *ProductApi) GetProduct(id string) *models.Product {
+        return pApi.ProductMap[id]
+}
