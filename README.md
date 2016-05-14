@@ -1,5 +1,8 @@
 # GoLang Product Service
 
+[![Build Status](https://snap-ci.com/yunspace/product-service/branch/master/build_image)](https://snap-ci.com/yunspace/product-service/branch/master)
+[![Docker Repository on Quay](https://quay.io/repository/yunspace/product-service/status "Docker Repository on Quay")](https://quay.io/repository/yunspace/product-service)
+
 A simple Product Service written in GoLang using the best libraries:
 
 - fasthttp
