@@ -5,6 +5,7 @@ import (
         "io/ioutil"
         "log"
         "github.com/pquerna/ffjson/ffjson"
+        "errors"
 )
 
 type ProductApi struct {
@@ -31,10 +32,14 @@ func mapProducts(products []models.Product) map[string]models.Product {
         return productMap
 }
 
-func (pApi *ProductApi) GetProducts() []models.Product {
-        return pApi.Products
+func (pApi *ProductApi) GetProducts() *[]models.Product {
+        return &pApi.Products
 }
 
-func (pApi *ProductApi) GetProductById(id string) models.Product {
-        return pApi.ProductMap[id]
+func (pApi *ProductApi) GetProductById(id string) (*models.Product, error) {
+        if val, ok := pApi.ProductMap[id]; ok {
+                return &val, nil
+        } else {
+                return nil, errors.New("not found")
+        }
 }
