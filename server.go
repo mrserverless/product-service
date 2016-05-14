@@ -7,27 +7,37 @@ import (
         "github.com/valyala/fasthttp"
         "github.com/pquerna/ffjson/ffjson"
 
-        //"github.com/yunspace/product-service/api"
+        "github.com/yunspace/product-service/api"
         "github.com/yunspace/product-service/models"
 )
 
-func Products(ctx *fasthttp.RequestCtx, ps fasthttprouter.Params) {
-        var p models.Product
-
-        JsonMarshall(ctx, p)
-}
-
-func JsonMarshall(ctx *fasthttp.RequestCtx, p models.Product) {
-        ctx.SetContentType("application/json")
-        if err := ffjson.NewEncoder(ctx).Encode(p); err != nil {
-                log.Fatalf("error in ffjson.Encoder.Encode: %s", err)
-        }
-}
-
 func main() {
         router := fasthttprouter.New()
-        router.GET("/products/", Products)
-        router.GET("/products/:id", Products)
+        pApi := api.NewProductApi("api/seed.json")
+
+        // CRUD
+        router.GET("/products/", Products(pApi))
+        router.GET("/products/:id",  Products(pApi))
 
         log.Fatal(fasthttp.ListenAndServe(":8080", router.Handler))
 }
+
+// Products handler
+func Products(pApi *api.ProductApi) fasthttprouter.Handle {
+        return func(ctx *fasthttp.RequestCtx, ps fasthttprouter.Params) {
+                //p := pApi.GetProducts()
+                JsonMarshall(ctx, &[]models.Product{})
+        }
+
+}
+
+func JsonMarshall(ctx *fasthttp.RequestCtx, v interface{}) {
+        if bytes, err := ffjson.Marshal(v); err != nil {
+                log.Fatalf("failed to marshal Product json: %s", err)
+                ctx.Error("failed to marshal Product json", 500)
+        } else {
+                ctx.Success("application/json", bytes)
+                ffjson.Pool(bytes)
+        }
+}
+
