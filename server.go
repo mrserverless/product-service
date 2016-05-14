@@ -8,27 +8,28 @@ import (
         "github.com/pquerna/ffjson/ffjson"
 
         "github.com/yunspace/product-service/api"
-        "github.com/yunspace/product-service/models"
 )
 
 func main() {
         router := fasthttprouter.New()
-        pApi := api.NewProductApi("api/seed.json")
+        productApi := api.NewProductApi("api/seed.json")
 
         // CRUD
-        router.GET("/products/", Products(pApi))
-        router.GET("/products/:id",  Products(pApi))
+        router.GET("/products/", Products(productApi))
+        router.GET("/products/:id",  Products(productApi))
 
         log.Fatal(fasthttp.ListenAndServe(":8080", router.Handler))
 }
 
 // Products handler
-func Products(pApi *api.ProductApi) fasthttprouter.Handle {
+func Products(productApi *api.ProductApi) fasthttprouter.Handle {
         return func(ctx *fasthttp.RequestCtx, ps fasthttprouter.Params) {
-                //p := pApi.GetProducts()
-                JsonMarshall(ctx, &[]models.Product{})
+                if ps.ByName("id") != "" {
+                        JsonMarshall(ctx, productApi.GetProductById(ps.ByName("id")))
+                } else {
+                        JsonMarshall(ctx, productApi.GetProducts())
+                }
         }
-
 }
 
 func JsonMarshall(ctx *fasthttp.RequestCtx, v interface{}) {

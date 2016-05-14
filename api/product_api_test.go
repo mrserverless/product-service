@@ -18,13 +18,12 @@ func TestNewProductApi(t *testing.T) {
 
 }
 
-
 func TestProductApi_GetProducts(t *testing.T) {
         // given
         pApi := NewProductApi("seed.json")
 
         // when
-        var products = pApi.GetProducts();
+        products := pApi.GetProducts();
 
         // then
         assert.Equal(t, len(products), 4, "should have 4 products")
@@ -34,10 +33,10 @@ func TestProductApi_GetProducts(t *testing.T) {
 func TestProductApi_GetProduct(t *testing.T) {
         // given
         pApi := NewProductApi("seed.json")
+        codes := []string{"ult_small", "ult_medium", "ult_large", "ult_xlarge" }
 
-        // when
-        var product = pApi.GetProduct("ult_small")
-
-        assert.Equal(t, "ult_small", product.Code )
-        t.Log(pApi.ProductMap)
+        // thenb
+        for _, code := range codes {
+                assert.Equal(t, code, pApi.GetProductById(code).Code)
+        }
 }
