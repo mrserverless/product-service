@@ -44,7 +44,7 @@ func JsonMarshall(ctx *fasthttp.RequestCtx, v interface{}) {
         }
 }
 
-func HandleError (ctx *fasthttp.RequestCtx, err error) {
+func HandleError(ctx *fasthttp.RequestCtx, err error) {
         if (err.Error() == "not found") {
                 ctx.Error("product not found", 404)
         } else {
