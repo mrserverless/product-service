@@ -47,7 +47,7 @@ func TestUnmarshallProductSlice(t *testing.T) {
 func TestUnmarshallProductFile(t *testing.T) {
         products := []Product{}
         buf, _ := ioutil.ReadFile("../api/seed.json")
-        if ffjson.Unmarshal(buf, &products); len(products) != 4 {
+        if ffjson.Unmarshal(buf, &products); len(products) != 5 {
                 t.Fatalf("incorrect number of products: %d", len(products))
         }
 }

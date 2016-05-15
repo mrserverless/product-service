@@ -32,8 +32,8 @@ func mapProducts(products []models.Product) map[string]models.Product {
         return productMap
 }
 
-func (pApi *ProductApi) GetProducts() *[]models.Product {
-        return &pApi.Products
+func (pApi *ProductApi) GetProducts() []models.Product {
+        return pApi.Products
 }
 
 func (pApi *ProductApi) GetProductById(id string) (*models.Product, error) {

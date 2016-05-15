@@ -16,6 +16,12 @@ A simple Product Service written in GoLang using the best libraries:
 
 ## Usage
 
+Docker:
+
+    docker run -d -p 8080:8080 quay.io/yunspace/product-service
+
+Commandline: since there is no DB, you must run the Go executable from a directory where api/seed.json exists:
+
     product-service
 
 This Service is deployed at `https://www.yunspace.com/products/`. Test using either

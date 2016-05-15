@@ -13,8 +13,8 @@ func TestNewProductApi(t *testing.T) {
         pApi := NewProductApi(seed)
 
         // then
-        assert.Equal(t, len(pApi.Products), 4, "should have 4 products")
-        assert.Equal(t, len(pApi.ProductMap), 4, "should have 4 in product map")
+        assert.Equal(t, len(pApi.Products), 5, "should have 4 products")
+        assert.Equal(t, len(pApi.ProductMap), 5, "should have 4 in product map")
 
 }
 
@@ -26,7 +26,7 @@ func TestProductApi_GetProducts(t *testing.T) {
         products := pApi.GetProducts();
 
         // then
-        assert.Equal(t, len(&products), 4, "should have 4 products")
+        assert.Equal(t, len(products), 5, "should have 5 products")
 
 }
 

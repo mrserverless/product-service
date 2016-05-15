@@ -1,54 +1,67 @@
 [
   {
     "code": "ult_small",
-    "name": "Unlimited 1GB",
+    "name": "Unlimited 1.5GB",
     "description": "",
     "price": 24.90,
     "expiry": 30,
     "is_plan": true,
     "is_ulimited": true,
-    "size_mb": 1024,
+    "size_mb": 1536,
     "4g": true,
     "auto_renew": true,
-    "terms_url": "http://amaysim.com.au/terms-conditions/special-conditi"
+    "terms_url": "https://www.amaysim.com.au/dms/amaysim/documents/terms-conditions/special-conditions-and-service-description-unlimited-1_5gb.pdf"
   },
   {
     "code": "ult_medium",
-    "name": "Unlimited 2GB",
+    "name": "Unlimited 3GB",
     "description": "",
-    "price": 24.90,
+    "price": 29.90,
     "expiry": 30,
     "is_plan": true,
     "is_ulimited": true,
-    "size_mb": 1024,
+    "size_mb": 3072,
     "4g": true,
     "auto_renew": true,
-    "terms_url": "http://amaysim.com.au/terms-conditions/special-conditi"
+    "terms_url": "https://www.amaysim.com.au/dms/amaysim/documents/terms-conditions/special-conditions-and-service-description-unlimited-3gb.pdf"
   },
   {
     "code": "ult_large",
-    "name": "Unlimited 5GB",
+    "name": "Unlimited 7GB",
+    "description": "",
+    "price": 39.90,
+    "expiry": 30,
+    "is_plan": true,
+    "is_ulimited": true,
+    "size_mb": 7168,
+    "4g": true,
+    "auto_renew": true,
+    "terms_url": "https://www.amaysim.com.au/dms/amaysim/documents/terms-conditions/special-conditions-and-service-description-unlimited-7gb.pdf"
+  },
+  {
+    "code": "ult_large_plus",
+    "name": "Unlimited 7GB Plus",
     "description": "",
     "price": 44.90,
     "expiry": 30,
     "is_plan": true,
     "is_ulimited": true,
-    "size_mb": 5120,
+    "size_mb": 7168,
     "4g": true,
     "auto_renew": true,
-    "terms_url": "http://amaysim.com.au/terms-conditions/special-conditi"
+    "terms_url": "https://www.amaysim.com.au/dms/amaysim/documents/terms-conditions/special-conditions-and-service-description-unlimited-7gb-plus.pdf"
   },
   {
     "code": "ult_xlarge",
-    "name": "Unlimited 8GB",
+    "name": "Unlimited 9GB",
     "description": "",
     "price": 49.90,
     "expiry": 30,
     "is_plan": true,
     "is_ulimited": true,
-    "size_mb": 8192,
+    "size_mb": 9216,
     "4g": true,
     "auto_renew": true,
-    "terms_url": "http://amaysim.com.au/terms-conditions/special-conditi"
+    "terms_url": "https://www.amaysim.com.au/dms/amaysim/documents/terms-conditions/special-conditions-and-service-description-unlimited-9gb.pdf"
   }
 ]
